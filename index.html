@@ -15,7 +15,7 @@
       width: 60%;
     }
 
-    .image {
+    .image img {
       width: 100%;
     }
   </style>
@@ -25,12 +25,12 @@
   <div id="errors"></div>
   <script type="text/javascript">
     const runQuery = () => {
-      fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyAaPNp58uQMDlWjDMNVaoOa1EmKfExyRRE&cx=018444136607721515923:yzwkpre2xbe&fields=items(image/thumbnailLink)&q=september&searchType=image`)
+      fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyAaPNp58uQMDlWjDMNVaoOa1EmKfExyRRE&cx=018444136607721515923:yzwkpre2xbe&fields=items(link)&q=september&searchType=image`)
         .then(response => response.json())
         .then(data => {
           data.items.forEach(item => {
             document.getElementById('image-wrapper').innerHTML += `<div class="image">
-                <img src="${item.image.thumbnailLink}" />
+                <img src="${item.link}" />
               </div>`;
           });
         })
