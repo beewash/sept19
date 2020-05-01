@@ -9,6 +9,15 @@
     body {
       background: #000000;
     }
+
+    #image-wrapper {
+      margin: 0 auto;
+      width: 60%;
+    }
+
+    .image {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -20,7 +29,7 @@
         .then(response => response.json())
         .then(data => {
           data.items.forEach(item => {
-            document.getElementById('images').innerHTML += `<div>
+            document.getElementById('image-wrapper').innerHTML += `<div class="image">
                 <img src="${item.image.thumbnailLink}" />
               </div>`;
           });
