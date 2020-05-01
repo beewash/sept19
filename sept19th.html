@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sept19th</title>
+</head>
+<body>
+  <div id="images"></div>
+  <div id="errors"></div>
+  <script type="text/javascript">
+    const runQuery = () => {
+      fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyAaPNp58uQMDlWjDMNVaoOa1EmKfExyRRE&cx=018444136607721515923:yzwkpre2xbe&fields=items(image/thumbnailLink)&q=september&searchType=image`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('images').innerHTML = `<img src="${data.thumbnailLink}" />`;
+        })
+        .catch(error => {
+          document.getElementById('errors').innerHTML = JSON.stringify(error);
+        })
+      }
+    window.onload = () => {
+      runQuery();
+    }
+  </script>
+</body>
+</html>
